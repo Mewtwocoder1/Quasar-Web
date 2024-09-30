@@ -696,7 +696,7 @@ const ts = new TabSystem({
   btnTemplate: document.querySelector("#tabBtnTemplate"),
   tabBtnContainer: document.querySelector("#tabsBar"),
   URLBar: document.querySelector("#adrbar"),
-  defaultPlaceholder: "type here to search...",
+  defaultPlaceholder: "type test to search...",
   closePlaceholder: "No tabs open, click the plus icon to open a new tab.",
 });
 
