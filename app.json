@@ -1,7 +1,7 @@
 {
   "name": "edu",
   "description": "?",
-  "repository": "https://github.com/AbyssServices/Abyss-Web",
+  "repository": "https://github.com/Mewtwocoder1/Quasar-Web",
   "keywords": ["school", "math"],
   "image": "heroku/nodejs"
 }
