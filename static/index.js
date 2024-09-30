@@ -172,7 +172,7 @@ function log() {
   setTimeout(
     console.log.bind(
       console,
-      "%cAbyss Web",
+      "%cQuasar Web",
       "background: #6670FF;color:#FFF;padding:5px;border-radius: 5px;line-height: 26px; font-size:30px;"
     )
   );
@@ -193,7 +193,7 @@ function log() {
   setTimeout(
     console.log.bind(
       console,
-      "%cDo not share output to anyone but trusted Abyss developers with a role in the server! Someone may steal your info.",
+      "%cDo not share output to anyone but trusted Quasar developers with a role in the server! Someone may steal your info.",
       "background: #6670FF;color:#FFF;padding:5px;border-radius: 5px;line-height: 26px; font-size:16px;"
     )
   );
@@ -315,7 +315,7 @@ const recordKeys = (elem, timeLimit) => {
 
 const cloakTitle = (title) => {
   if (title.trim() == "") {
-    title = "Abyss";
+    title = "Quasar";
   }
   document.title = title;
   localStorage.setItem("title", title);
@@ -559,7 +559,7 @@ const runService = async (url, override, overrideadrbar) => {
             }
             settingsTemplate.querySelector(".panicURL").value = window.panicURL;
             settingsTemplate.querySelector(".tabTitle").placeholder =
-              localStorage.getItem("title") || "Abyss";
+              localStorage.getItem("title") || "Quasar";
             settingsTemplate.querySelector(".tabIcon").placeholder =
               localStorage.getItem("favicon") || "Default Favicon";
             activeTab.getConnectedElement().querySelector("span").innerText =
@@ -582,7 +582,7 @@ const runService = async (url, override, overrideadrbar) => {
             aboutTemplate.style.display = "initial";
             tabElement.appendChild(aboutTemplate);
             activeTab.getConnectedElement().querySelector("span").innerText =
-              "About Abyss";
+              "About Quasar";
           }
           return;
         default:
@@ -998,7 +998,7 @@ function tabSwitch(parse) {
 }
 
 function resetTab() {
-  cloakTitle('Abyss')
+  cloakTitle('Quasar')
   cloakFavicon('assets/favicon.ico')
 }
 
