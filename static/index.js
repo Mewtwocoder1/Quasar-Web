@@ -455,9 +455,9 @@ const openNewtab = () => {
 };
 
 let splashtext = [
-  "check out discord.gg/goabyss",
+  "check out discord.gg/goquasar",
   "made by paxton warin",
-  "want your own link? check out discord.gg/goabyss",
+  "want your own link? check out discord.gg/goquasar",
   "thanks for using the site!",
   "check out the settings page",
   "check out the games page",
@@ -470,7 +470,7 @@ let splashtext = [
 
 const runService = async (url, override, overrideadrbar) => {
   if (url.trim() == "") return;
-  if (ts.getActiveTab() == null || url == "abyss://settings" || url == "abyss:settings" || url == "abyss:apps" || url== "abyss://apps") {
+  if (ts.getActiveTab() == null || url == "quasar://settings" || url == "quasar:settings" || url == "quasar:apps" || url== "quasar://apps") {
     openNewtab();
   }
   const activeTab = ts.getActiveTab();
@@ -484,8 +484,8 @@ const runService = async (url, override, overrideadrbar) => {
     if (mainStartElement) {
       mainStartElement.style.display = "none";
     }
-    if (/^(abyss:)(\/)*[a-z]*/.test(url)) {
-      url = url.replace(/^(abyss:)(\/)*/, "");
+    if (/^(quasar:)(\/)*[a-z]*/.test(url)) {
+      url = url.replace(/^(quasar:)(\/)*/, "");
       const adrbarInputElement = document.getElementById("adrbar");
       if (adrbarInputElement instanceof HTMLInputElement) {
         adrbarInputElement.value = "";
@@ -512,7 +512,7 @@ const runService = async (url, override, overrideadrbar) => {
           
           return;
         case "apps":
-          const appsPlaceholder = "abyss apps (abyss://apps)";
+          const appsPlaceholder = "quasar apps (quasar://apps)";
           if (tabElement.querySelectorAll(".extFrame").length > 0) {
             tabElement.querySelectorAll(".extFrame").forEach((frame) => {
               frame.remove();
@@ -534,7 +534,7 @@ const runService = async (url, override, overrideadrbar) => {
             setTimeout(initAppSearch, 1);
         return;
         case "settings":
-          const settingsPlaceholder = "abyss settings (abyss://settings)";
+          const settingsPlaceholder = "quasar settings (quasar://settings)";
           if (tabElement.querySelectorAll(".extFrame").length > 0) {
             tabElement.querySelectorAll(".extFrame").forEach((frame) => {
               frame.remove();
