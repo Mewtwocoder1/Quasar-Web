@@ -290,9 +290,9 @@ html {
   color: var(--color);
   padding-left: 20px;
   position: relative;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", system-ui;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 700;
   font-style: normal;
   border: 1px solid white;
 }
