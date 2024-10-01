@@ -292,7 +292,7 @@ html {
   position: relative;
   font-family: 'Quicksand', sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 500;
   font-style: normal;
   border: 1px solid white;
 }
