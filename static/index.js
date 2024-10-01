@@ -243,7 +243,7 @@ setInterval(() => {
   if (suggestionsList.querySelector('div') && suggestionsList.style.display == 'flex') {
     searchInput.style.borderBottomLeftRadius = "0px";
     searchInput.style.borderBottomRightRadius = "0px";
-    searchInput.style.borderTopLeftRadius = "19px";
+    searchInput.style.borderTopLeftRadius = "0px";
     searchInput.style.borderTopRightRadius = "19px";
   }
 }, 100);
