@@ -232,7 +232,7 @@ document.getElementById("adrbar").addEventListener("focus", function () {
 document.getElementById("adrbar").addEventListener("blur", function () {
   setTimeout(function() {
     suggestionsList.style.display = 'none';
-    searchInput.style.borderBottomLeftRadius = "0px";
+    searchInput.style.borderBottomLeftRadius = "38px";
     searchInput.style.borderBottomRightRadius = "38px";
     searchInput.style.borderTopLeftRadius = "38px";
     searchInput.style.borderTopRightRadius = "38px";
@@ -243,7 +243,7 @@ setInterval(() => {
   if (suggestionsList.querySelector('div') && suggestionsList.style.display == 'flex') {
     searchInput.style.borderBottomLeftRadius = "0px";
     searchInput.style.borderBottomRightRadius = "0px";
-    searchInput.style.borderTopLeftRadius = "0px";
+    searchInput.style.borderTopLeftRadius = "19px";
     searchInput.style.borderTopRightRadius = "19px";
   }
 }, 100);
