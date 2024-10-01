@@ -232,7 +232,7 @@ document.getElementById("adrbar").addEventListener("focus", function () {
 document.getElementById("adrbar").addEventListener("blur", function () {
   setTimeout(function() {
     suggestionsList.style.display = 'none';
-    searchInput.style.borderBottomLeftRadius = "38px";
+    searchInput.style.borderBottomLeftRadius = "0px";
     searchInput.style.borderBottomRightRadius = "38px";
     searchInput.style.borderTopLeftRadius = "38px";
     searchInput.style.borderTopRightRadius = "38px";
