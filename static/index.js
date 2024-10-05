@@ -650,7 +650,6 @@ const runService = async (url, override, overrideadrbar) => {
       }
       iframe.className = "extFrame";
       iframe.style.width = "100%";
-      iframe.style.height = "90%";
       iframe.style.border = "none";
       iframe.style.background = "#111";
       tabElement.appendChild(iframe);
@@ -893,7 +892,7 @@ function removeBookmark(bookmark) {
   }
   if (bookmarks.length <= 0) {
     document.getElementById("tabContainer").style.height = "calc(100vh - 110px)";
-    document.getElementById("headerArea").style.height = "125px";
+    document.getElementById("headerArea").style.height = "500px";
   }
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
 }
