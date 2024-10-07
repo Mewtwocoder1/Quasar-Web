@@ -892,7 +892,7 @@ function removeBookmark(bookmark) {
   }
   if (bookmarks.length <= 0) {
     document.getElementById("tabContainer").style.height = "calc(100vh - 110px)";
-    document.getElementById("headerArea").style.height = "500px";
+    document.getElementById("headerArea").style.height = "125px";
   }
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
 }
