@@ -650,6 +650,7 @@ const runService = async (url, override, overrideadrbar) => {
       }
       iframe.className = "extFrame";
       iframe.style.width = "100%";
+      iframe.style.height = "900px";
       iframe.style.border = "none";
       iframe.style.background = "#111";
       tabElement.appendChild(iframe);
