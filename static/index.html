@@ -1,17 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="forest">
+<html lang="en" data-theme="aqua" class="min-h-full">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" id="default-theme" href="assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quasar</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <script src="tabsys.js"></script>
     <script src="themesys.js"></script>
     <script src="class/uv.bundle.js" defer></script>
@@ -23,302 +17,286 @@
     <div id="headerArea">
       <div id="leftTopBtns">
         <button class="btn" onclick="createNewTab()" id="newTabBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
-        <button class="btn" onclick="runService('quasar:settings')" id="settingsBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
+        <div id="tabsBar"></div>
       </div>
-      <div id="tabsBar"></div>
-      <ul class="menu menu-horizontal bg-base-200 rounded-full id="toolsBar">
-        <button class="btn" onclick="back()" id="arrowLeftContain"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <button class="btn" onclick="refresh()" id="reloadBtn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38"/></svg></button>
-        <button class="btn" onclick="forward()" id="arrowRightContain"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
-      </ul>
-        <div id="searchBar">
-          <input id="adrbar" type="text" class="input" placeholder="Type herh to search"/>
-          <div id="suggestions" style="display: none;"></div>
-        </div>
-        <div id="rightBtnGroup">
-          <div id="rightToolGroup">
-            <button class="btn" onclick="runService('quasar:apps')">Apps</button>
-            <button class="btn" onclick="opNT()">Open</button>
-            <button class="btn" onclick="bookmark()" aria-label="Bookmark Tab">Bookmark</button>
-            <button class="btn" onclick="fullscreen()">Fullscreen</button>
-            <button class="btn" onclick="erudaToggle();">Inspect</button>
+      <div class="flex justify-center">
+        <ul class="menu menu-horizontal bg-base-300 rounded-btn absolute" style="top: calc(100% - 70px)" id="toolsBar">
+          <button class="btn" onclick="back()" id="arrowLeftContain"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="btn" onclick="refresh()" id="reloadBtn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38"/></svg></button>
+          <button class="btn" onclick="forward()" id="arrowRightContain"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+          <div id="searchBar">
+            <input id="adrbar" type="text" class="input w-96"/>
+            <div class="join join-vertical" id="suggestions" style="display: none;"></div>
           </div>
+          <button class="btn" onclick="runService('quasar:settings')" id="settingsBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
+          <button class="btn">hide</button>
+        </ul>
+      </div>
+    </div>
+    <div id="rightBtnGroup">
+        <div id="rightToolGroup">
+          <button class="btn" onclick="runService('quasar:apps')">Apps</button>
+          <button class="btn" onclick="opNT()">Open</button>
+          <button class="btn" onclick="bookmark()" aria-label="Bookmark Tab">Bookmark</button>
+          <button class="btn" onclick="fullscreen()">Fullscreen</button>
+          <button class="btn" onclick="erudaToggle();">Inspect</button>
         </div>
       </div>
-      <div id="bookmarksBar"></div>
+    </div>
+    <div id="bookmarksBar"></div>
     </div>
     <div id="tabContainer"></div>
     <div id="apps-temp" style="display: none;" class="extFrame">
-      <div
-        style="
-          height: calc(100% - 0px);
-          width: 100%;
-          overflow-y: auto;
-          position: relative;
-          top: 0px;
-        "
-      >
-      <center>
-        <h1 class="settingsHeader">Apps</h1>
-        <br/>
-        <br/>
-        <input id="categorySearch" placeholder="search...">
-        </input>
-        <select id="categorySelect" onchange="filterCategory(this.value)">
-          <option value="all">all</option>
-          <option value="utility">utility</option>
-          <option value="2P">multiplayer</option>
-          <option value="emu">emulator</option>
-          <option value="flash">flash</option>
-          <option value="android">android</option>
-        </select>
-        <div id="appsOrganizer" class="settingCards">
-            </div>
-        </div>
+    <div
+      style="
+        height: calc(100% - 0px);
+        width: 100%;
+        overflow-y: auto;
+        position: relative;
+        top: 0px;
+      "
+    >
+    <center>
+      <h1 class="settingsHeader">Apps</h1>
+      <br/>
+      <br/>
+      <input id="categorySearch" placeholder="search...">
+      </input>
+      <select id="categorySelect" onchange="filterCategory(this.value)">
+        <option value="all">all</option>
+        <option value="utility">utility</option>
+        <option value="2P">multiplayer</option>
+        <option value="emu">emulator</option>
+        <option value="flash">flash</option>
+        <option value="android">android</option>
+      </select>
+      <div id="appsOrganizer" class="settingCards">
+          </div>
+      </div>
     </div>
     <div id="settings-temp" style="display: none;" class="extFrame">
-      <div
-        style="
-          height: calc(100% - 0px);
-          width: 100%;
-          overflow-y: auto;
-          position: relative;
-          top: 0px;
-        "
-      >
-        <center>
-          <h1 class="settingsHeader">Settings</h1>
-
-          <div class="settingCards">
-            <div class="quasarCard">
-              <h1>cloaking</h1>
-              <div id="settingContainer" style="margin: 20px 0 0 30px; ">
-              <h2 >auto cloak</h2>
-              <button
-                onclick="autoLaunch();"
-                id="autoLaunch"
-              >
-              toggle
+    <div
+      style="
+        height: calc(100% - 0px);
+        width: 100%;
+        overflow-y: auto;
+        position: relative;
+        top: 0px;
+      "
+    >
+      <center>
+        <h1 class="settingsHeader">Settings</h1>
+    
+        <div class="settingCards">
+          <div class="quasarCard">
+            <h1>cloaking</h1>
+            <div id="settingContainer" style="margin: 20px 0 0 30px; ">
+            <h2 >auto cloak</h2>
+            <button
+              onclick="autoLaunch();"
+              id="autoLaunch"
+            >
+            toggle
+          </button>
+        </div>
+        <div id="settingContainer" style="margin: 105px 0 0 30px;">
+        <h2>launch in a:b</h2>
+            <button
+              onclick="launchAB();"
+              id="oneTimeLaunch"
+            >
+              launch
             </button>
           </div>
-          <div id="settingContainer" style="margin: 105px 0 0 30px;">
-          <h2>launch in a:b</h2>
-              <button
-                onclick="launchAB();"
-                id="oneTimeLaunch"
+          <div id="settingContainer" style="margin: 20px 0 0 310px;">
+            <h2>site title</h2>
+            <input
+              class="tabTitle"
+              type="text"
+              placeholder="enter text"
+              onchange="cloakTitle(this.value)"
+              style="left: -7px;";
+            />
+          </div>
+          <div id="settingContainer" style="margin: 105px 0 0 310px;">
+            <h2>site icon</h2>
+            <input
+              class="tabIcon"
+              type="text"
+              placeholder="enter URL"
+              onchange="cloakFavicon(this.value)"
+              style="left: -7px;";
+            />
+          </div>
+          <div id="settingContainer" style="margin: 190px 0 0 30px;">
+          <h2>tab presets</h2>
+            <select
+                onchange="tabSwitch(this)"
               >
-                launch
-              </button>
-            </div>
-            <div id="settingContainer" style="margin: 20px 0 0 310px;">
-              <h2>site title</h2>
-              <input
-                class="tabTitle"
-                type="text"
-                placeholder="enter text"
-                onchange="cloakTitle(this.value)"
-                style="left: -7px;";
-              />
-            </div>
-            <div id="settingContainer" style="margin: 105px 0 0 310px;">
-              <h2>site icon</h2>
-              <input
-                class="tabIcon"
-                type="text"
-                placeholder="enter URL"
-                onchange="cloakFavicon(this.value)"
-                style="left: -7px;";
-              />
-            </div>
-            <div id="settingContainer" style="margin: 190px 0 0 30px;">
-            <h2>tab presets</h2>
+              <option value="blank">choose...</option>
+              <option value="Classroom">google classroom</option>
+              <option value="Schoology">schoology</option>
+              <option value="Mathspace">mathspace</option>
+              <option value="Google">google</option>
+              <option value="Docs">google docs</option>
+              <option value="Drive">google drive</option>
+              <option value="Khan">khan academy</option>
+              <option value="iXL">iXL</option>
+              </select>
+        </div>
+        <div id="settingContainer" style="margin: 190px 0 0 310px;">
+          <h2>reset title/icon</h2>
+              <button
+              onclick="resetTab();"
+            >
+            reset
+            </button>
+          </div>
+      </div>
+          <div class="quasarCard">
+            <h1>theme</h1>
+            
+            <div id="settingContainer" style="margin: 95px 0 0 30px;">
+              <h2>theme</h2>
               <select
-                  onchange="tabSwitch(this)"
+                id="themeSelect"
+                onchange="themeSwitch(this)"
+                class="theme"
+              >
+                <option value="Moon">black</option>
+              </select>
+            </div>
+            <div id="settingContainer" style="margin: 95px 0 0 310px;">
+              <h2>particles</h2>
+              <select
+                onchange="particleSelect(this.value)"
+              >
+              <option value="choose...">choose...</option>
+                <option value="on">on</option>
+                <option value="off">off</option>
+              </select>
+            </div>
+          </div>
+          <div class="quasarCard">
+            <h1>bypass</h1>
+            <div id="settingContainer" style="margin: 45px 0 0 30px;">
+            <h2>panic keybind</h2>
+            <input
+              type="text"
+              readonly
+              placeholder="enter key(s)"
+              onclick="recordKeys(this, 500)"
+              class="panic"
+              id="panic"
+            />
+          </div>
+          <div id="settingContainer" style="margin: 140px 0 0 30px;">
+            <h2>panic url</h2>
+            <input
+              type="text"
+              placeholder="enter URL"
+              onchange="cloakURL(this.value)"
+              class="panicURL"
+              
+            />
+            </div>
+            <div id="settingContainer" style="margin: 45px 0 0 310px;">
+            <h2>reset panic keys</h2>
+            <button
+              onclick="resetPanicBind();"
+              class=""
+            >
+              reset
+            </button>
+            </div>
+            <div id="settingContainer" style="margin: 140px 0 0 310px;"> 
+              <h2>backend</h2>
+              <select
+              onchange="setBackend(this.value)"
+              >
+              <option>choose...</option>
+              <option value='uv'>ultraviolet</option>
+              <option value='dynamic'>dynamic</option>
+            </select>
+            </div>
+          </div>
+          
+          <div class="quasarCard">
+            <h1>other</h1>
+            <div id="settingContainer" style="margin: 95px 0 0 30px;"> 
+            <h2>search engine</h2>
+            <select
+                onchange="engineSwitch(this)"
+              >
+              <option value="blank">choose...</option>
+              <option value="Google">google</option>
+              <option value="Bing">bing</option>
+              <option value="DuckDuckGo">duckduckgo</option>
+              </select>
+            </div>
+            <div id="settingContainer" style="margin: 95px 0 0 310px;"> 
+              <h2>ad preference</h2>
+              <select
+                  onchange="adChange(this.value)"
+                  id="adChangeSelector"
                 >
                 <option value="blank">choose...</option>
-                <option value="Classroom">google classroom</option>
-                <option value="Schoology">schoology</option>
-                <option value="Mathspace">mathspace</option>
-                <option value="Google">google</option>
-                <option value="Docs">google docs</option>
-                <option value="Drive">google drive</option>
-                <option value="Khan">khan academy</option>
-                <option value="iXL">iXL</option>
+                <option value="adchangeon">on</option>
+                <option value="adchangeoff">off</option>
                 </select>
-          </div>
-          <div id="settingContainer" style="margin: 190px 0 0 310px;">
-            <h2>reset title/icon</h2>
-                <button
-                onclick="resetTab();"
-              >
-              reset
-              </button>
+              </div>
             </div>
         </div>
-            <div class="quasarCard">
-              <h1>theme</h1>
-              
-              <div id="settingContainer" style="margin: 95px 0 0 30px;">
-                <h2>theme</h2>
-                <select
-                  id="themeSelect"
-                  onchange="themeSwitch(this)"
-                  class="theme"
-                >
-                  <option value="Moon">black</option>
-                </select>
-              </div>
-              <div id="settingContainer" style="margin: 95px 0 0 310px;">
-                <h2>particles</h2>
-                <select
-                  onchange="particleSelect(this.value)"
-                >
-                <option value="choose...">choose...</option>
-                  <option value="on">on</option>
-                  <option value="off">off</option>
-                </select>
-              </div>
-            </div>
-            <div class="quasarCard">
-              <h1>bypass</h1>
-              <div id="settingContainer" style="margin: 45px 0 0 30px;">
-              <h2>panic keybind</h2>
-              <input
-                type="text"
-                readonly
-                placeholder="enter key(s)"
-                onclick="recordKeys(this, 500)"
-                class="panic"
-                id="panic"
-              />
-            </div>
-            <div id="settingContainer" style="margin: 140px 0 0 30px;">
-              <h2>panic url</h2>
-              <input
-                type="text"
-                placeholder="enter URL"
-                onchange="cloakURL(this.value)"
-                class="panicURL"
-                
-              />
-              </div>
-              <div id="settingContainer" style="margin: 45px 0 0 310px;">
-              <h2>reset panic keys</h2>
-              <button
-                onclick="resetPanicBind();"
-                class=""
-              >
-                reset
-              </button>
-              </div>
-              <div id="settingContainer" style="margin: 140px 0 0 310px;"> 
-                <h2>backend</h2>
-                <select
-                onchange="setBackend(this.value)"
-                >
-                <option>choose...</option>
-                <option value='uv'>ultraviolet</option>
-                <option value='dynamic'>dynamic</option>
-              </select>
-              </div>
-            </div>
-            
-            <div class="quasarCard">
-              <h1>other</h1>
-              <div id="settingContainer" style="margin: 95px 0 0 30px;"> 
-              <h2>search engine</h2>
-              <select
-                  onchange="engineSwitch(this)"
-                >
-                <option value="blank">choose...</option>
-                <option value="Google">google</option>
-                <option value="Bing">bing</option>
-                <option value="DuckDuckGo">duckduckgo</option>
-                </select>
-              </div>
-              <div id="settingContainer" style="margin: 95px 0 0 310px;"> 
-                <h2>ad preference</h2>
-                <select
-                    onchange="adChange(this.value)"
-                    id="adChangeSelector"
-                  >
-                  <option value="blank">choose...</option>
-                  <option value="adchangeon">on</option>
-                  <option value="adchangeoff">off</option>
-                  </select>
-                </div>
-              </div>
-          </div>
-        </center>
-      </div>
+      </center>
+    </div>
     </div>
     <div id="invalid-temp" style="display: none;" class="extFrame">
-      <center style="padding: 20px;">
-        <br />
-        <br />
-        <br />
-        <h1>
-          This is an invalid Quasar route, please create a new tab and continue
-          searching.
-        </h1>
-      </center>
+    <center style="padding: 20px;">
+      <br />
+      <br />
+      <br />
+      <h1>
+        This is an invalid Quasar route, please create a new tab and continue
+        searching.
+      </h1>
+    </center>
     </div>
     <div id="about-temp" style="display: none;" class="extFrame">
-      <center style="padding: 20px;">
-        <br />
-        <br />
-        <br />
-        <h1>
-          About Quasar
-        </h1>
-          <p>
-          This was app made by Paxton Warin (<a style="color:white;text-decoration:underline; cursor:pointer;" href="https://paxton.rip/">website</a>, discord: frontshotz). Join Quasar with the <a style="color:white;text-decoration:underline;" href="discord.gg/goquasar/">invite</a>.
-        </p>
-      </center>
+    <center style="padding: 20px;">
+      <br />
+      <br />
+      <br />
+      <h1>
+        About Quasar
+      </h1>
+        <p>
+        This was app made by Paxton Warin (<a style="color:white;text-decoration:underline; cursor:pointer;" href="https://paxton.rip/">website</a>, discord: frontshotz). Join Quasar with the <a style="color:white;text-decoration:underline;" href="discord.gg/goquasar/">invite</a>.
+      </p>
+    </center>
     </div>
     <div id="tabTemplate" style="display: block">
-
-      <div class="mainStartContain extFrame">
-        <div class="imageContain">
-          <div>
-            <h1>Quasar</h1>
-            <p id="quote">penis</p>
-              <input
-                id="adrbar2"
-                type="url"
-                placeholder="Type test to search"
-              />
-            </div>
-          </div>
+    
+    <div class="mainStartContain extFrame">
+      <div class="imageContain">
+        <div>
+          <h1>Quasar</h1>
+          <p id="quote">penis</p>
+            <input
+              id="adrbar2"
+              type="url"
+              placeholder="Type test to search"
+            />
         </div>
-        <p><a id= "invite" onclick="runService('discord.gg/goquasar')" style="font-size: 20px;
-          font-weight: 500;
-          position: absolute;
-          top: calc(100% - 25px);
-          left: 0%;
-        text-decoration: none; cursor:pointer;">Discord</a><a style="font-size: 20px;
-          font-weight: 500;
-          position: absolute;
-          top: calc(100% - 25px);
-          left: calc(0% + 100px);
-        text-decoration: none; cursor:pointer;" onclick="runService('https://intoquasar.org/github')">Github</a></p>
-        <p style="font-size: 16px;
-        font-weight: 300;
-        position: absolute;
-        top: calc(100% - 38px);
-        left: calc(100% - 270px);
-      text-decoration: none; ">Copyright Quasar Services LLC 2024</p>
-
       </div>
     </div>
-
+    
     <button class="btn" id="tabBtnTemplate">
-      <div id="tabFaviconHolder" class="w-5">
-        <img src="assets/globedark.png" id="tabFavicon">
-      </div>
-      <span class="tabTitle">New Tab</span>
-      <span class="tabClose" onclick="window.tryClose=true">+</span>
+    <div id="tabFaviconHolder" class="w-5">
+      <img src="assets/globedark.png" id="tabFavicon">
+    </div>
+    <span class="tabTitle">New Tab</span>
+    <span class="tabClose" onclick="window.tryClose=true">+</span>
     </button>
-  </div>
+    </div>
   </body>
 </html>

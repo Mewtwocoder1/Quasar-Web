@@ -228,25 +228,14 @@ const searchInput = document.getElementById('adrbar');
 const suggestionsList = document.getElementById('suggestions');
 document.getElementById("adrbar").addEventListener("focus", function () {
   suggestionsList.style.display = 'flex';
-});
+  });
 document.getElementById("adrbar").addEventListener("blur", function () {
   setTimeout(function() {
     suggestionsList.style.display = 'none';
-    searchInput.style.borderBottomLeftRadius = "38px";
-    searchInput.style.borderBottomRightRadius = "38px";
-    searchInput.style.borderTopLeftRadius = "38px";
-    searchInput.style.borderTopRightRadius = "38px";
-  }, 300); // unnoticeable delay, just so that the form handles clicks before it dissapears
+
+  }, 100);
 });
 
-setInterval(() => {
-  if (suggestionsList.querySelector('div') && suggestionsList.style.display == 'flex') {
-    searchInput.style.borderBottomLeftRadius = "0px";
-    searchInput.style.borderBottomRightRadius = "0px";
-    searchInput.style.borderTopLeftRadius = "19px";
-    searchInput.style.borderTopRightRadius = "19px";
-  }
-}, 100);
 searchInput.addEventListener('input', function() {
   const query = searchInput.value.trim(); // Use searchInput directly
   if (query === '') {
@@ -269,14 +258,14 @@ function handleSuggestions(data) {
 function showSuggestions(suggestions) {
   let html = '';
   suggestions.forEach(suggestion => {
-    html += `<div>${suggestion}</div>`;
+    html += `<button class="btn">${suggestion}</button>`;
   });
   suggestionsList.innerHTML = html;
 }
 
 // Handle click on suggestion
 suggestionsList.addEventListener('click', function(event) {
-  if (event.target.tagName === 'DIV') {
+  if (event.target.tagName === 'button class="btn"'); {
     runService(event.target.textContent);
     suggestionsList.innerHTML = '';
   }
